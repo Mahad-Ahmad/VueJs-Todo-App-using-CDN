@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <title>Lesson Tracker</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        padding: 20px;
+      }
+      button {
+        padding: 10px 16px;
+        font-size: 14px;
+        cursor: pointer;
+        background-color: #4caf50;
+        color: white;
+        border: none;
+        border-radius: 5px;
+      }
+      button.secondary {
+        background-color: #2196f3;
+        margin-top: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <h1>{{ title }}</h1>
+      <h2>Lessons Completed: {{ lessonsCompleted }}</h2>
+
+      <button @click="markLessonComplete">Mark Lesson as Completed</button>
+      <br />
+      <button class="secondary" @click="changeTitle">
+        Update Header Title
+      </button>
+    </div>
+
+    <script>
+      const { createApp, ref } = Vue;
+
+      createApp({
+        // Options API
+
+        // const app = Vue.createApp({
+        //   data() {
+        //     return {
+        //       message: "Hello World",
+        //     };
+        //   },
+        //   methods: {
+        //     handleOnClick() {
+        //       console.log("Clicked");
+        //       this.message = "Button Clicked";
+        //     },
+        //   },
+        // });
+
+        // app.mount("#app");
+
+        // Composition API
+        setup() {
+          const lessonsCompleted = ref(0);
+          const title = ref("Welcome to Your Lesson Tracker");
+
+          const changeTitle = () => {
+            title.value = "You're making great progress!";
+            console.log("Title updated!");
+          };
+
+          const markLessonComplete = () => {
+            lessonsCompleted.value++;
+            console.log("Lesson marked complete.");
+          };
+
+          return {
+            title,
+            lessonsCompleted,
+            changeTitle,
+            markLessonComplete,
+          };
+        },
+      }).mount("#app");
+    </script>
+  </body>
+</html>
