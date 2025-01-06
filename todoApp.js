@@ -17,6 +17,13 @@ export default {
     const newTask = ref("");
     const tasks = ref([]);
 
-    return { newTask, tasks };
+    function addTask() {
+      if (newTask.value.trim()) {
+        tasks.value.push(newTask.value.trim());
+        newTask.value = "";
+      }
+    }
+
+    return { newTask, tasks, addTask };
   },
 };
