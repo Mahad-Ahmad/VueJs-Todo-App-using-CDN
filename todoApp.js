@@ -12,18 +12,22 @@ export default {
     </div>
   `,
   setup() {
-    const { ref } = Vue;
+    const { ref } = Vue
 
-    const newTask = ref("");
-    const tasks = ref([]);
+    const newTask = ref('')
+    const tasks = ref([])
 
     function addTask() {
       if (newTask.value.trim()) {
-        tasks.value.push(newTask.value.trim());
-        newTask.value = "";
+        tasks.value.push(newTask.value.trim())
+        newTask.value = ''
       }
     }
 
-    return { newTask, tasks, addTask };
-  },
-};
+    function removeTask(index) {
+      tasks.value.splice(index, 1)
+    }
+
+    return { newTask, tasks, addTask, removeTask }
+  }
+}
