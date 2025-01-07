@@ -30,4 +30,26 @@ export default {
       this.tasks.splice(index, 1);
     },
   },
+
+  // Composition API
+
+  // setup() {
+  //   const { ref } = Vue
+
+  //   const newTask = ref('')
+  //   const tasks = ref([])
+
+  //   function addTask() {
+  //     if (newTask.value.trim()) {
+  //       tasks.value.push(newTask.value.trim())
+  //       newTask.value = ''
+  //     }
+  //   }
+
+  //   function removeTask(index) {
+  //     tasks.value.splice(index, 1)
+  //   }
+
+  //   return { newTask, tasks, addTask, removeTask }
+  // }
 };
