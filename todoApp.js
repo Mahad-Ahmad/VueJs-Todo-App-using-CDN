@@ -11,23 +11,23 @@ export default {
       </ul>
     </div>
   `,
-  setup() {
-    const { ref } = Vue
+  // Option API
 
-    const newTask = ref('')
-    const tasks = ref([])
-
-    function addTask() {
-      if (newTask.value.trim()) {
-        tasks.value.push(newTask.value.trim())
-        newTask.value = ''
+  data() {
+    return {
+      newTask: "",
+      tasks: [],
+    };
+  },
+  methods: {
+    addTask() {
+      if (this.newTask.trim()) {
+        this.tasks.push(this.newTask.trim());
+        this.newTask = "";
       }
-    }
-
-    function removeTask(index) {
-      tasks.value.splice(index, 1)
-    }
-
-    return { newTask, tasks, addTask, removeTask }
-  }
-}
+    },
+    removeTask() {
+      this.tasks.splice(index, 1);
+    },
+  },
+};
