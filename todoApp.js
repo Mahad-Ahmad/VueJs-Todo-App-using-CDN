@@ -26,7 +26,7 @@ export default {
         this.newTask = "";
       }
     },
-    removeTask() {
+    removeTask(index) {
       this.tasks.splice(index, 1);
     },
   },
